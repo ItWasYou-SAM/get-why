@@ -122,6 +122,25 @@ body {
   animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+/* Header reading-progress bar, driven by scroll where the browser supports it. */
+.scroll-progress {
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 /* Scroll reveal (see components/reveal.tsx). */
 .reveal {
   opacity: 0;

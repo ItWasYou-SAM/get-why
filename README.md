@@ -8,8 +8,8 @@ The public marketing and documentation site for [Why-Code](https://github.com/hi
 | `/` | Plain-words explanation, animated working model, what you get, honest teaser |
 | `/how-it-works` | Find → check → record → use, each step with its own animated diagram (miners, git currency, ledger, retrieval, validator) |
 | `/technology` | Animated architecture diagram, an explorer with an animated diagram per component (git, miners, tree-sitter, Neo4j, ledger, hybrid retrieval, DistilBERT, LLM + validator, MCP, GitHub Action) — how it works and how Why-Code uses it — and an honest status table |
-| `/compare` | Why-Code vs. ChatGPT & Claude, including where Why-Code falls short |
-| `/docs` | Quick start for the ledger, PR block, GitHub Action, MCP and API |
+| `/compare` | Why-Code vs. ChatGPT & Claude: animated chat-vs-record and “switch the model off” diagrams, the feature table, and where Why-Code falls short |
+| `/docs` | Quick start for the ledger, PR block, GitHub Action, MCP and API, with copyable code blocks and an on-this-page index that follows your scroll |
 
 ```bash
 npm install

@@ -159,7 +159,7 @@ const CODE = ["class Client:", "    retries = 0", "", "    def send(self, req):"
 export function TreeSitterDiagram() {
   const stepper = useStepper(TS_STEPS.length);
   const { step } = stepper;
-  const tree = phase(step, 1, 1, "hidden");
+  const tree = phase(step, 1, 1, "dim");
 
   return (
     <Diagram
@@ -199,13 +199,13 @@ export function TreeSitterDiagram() {
 
       <Box x={384} y={12} w={104} h={28} rx={14} label="module" vis={tree} />
       <Edge d="M436 40 V62" vis={tree} />
-      <Box x={366} y={64} w={140} h={38} label="class_definition" sub="Client" vis={phase(step, 1, 2, "hidden")} />
+      <Box x={366} y={64} w={140} h={38} label="class_definition" sub="Client" vis={phase(step, 1, 2, "dim")} />
       <Edge d="M436 102 C436 116 356 112 356 126" vis={tree} />
-      <Edge d="M436 102 C436 116 496 112 496 126" vis={phase(step, 1, [2, 3], "hidden")} />
+      <Edge d="M436 102 C436 116 496 112 496 126" vis={phase(step, 1, [2, 3], "dim")} />
       <Box x={296} y={128} w={120} h={38} label="assignment" sub="retries" vis={tree === "hot" ? "on" : tree} />
-      <Box x={436} y={128} w={120} h={38} label="function_def" sub="send · L4–6" vis={phase(step, 1, [2, 3], "hidden")} />
-      <Edge d="M496 166 V186" vis={phase(step, 1, 3, "hidden")} />
-      <Box x={436} y={188} w={120} h={38} label="comment" sub="WHY: no retry…" tone={step >= 3 ? "ok" : "ink"} vis={phase(step, 1, 3, "hidden")} />
+      <Box x={436} y={128} w={120} h={38} label="function_def" sub="send · L4–6" vis={phase(step, 1, [2, 3], "dim")} />
+      <Edge d="M496 166 V186" vis={phase(step, 1, 3, "dim")} />
+      <Box x={436} y={188} w={120} h={38} label="comment" sub="WHY: no retry…" tone={step >= 3 ? "ok" : "ink"} vis={phase(step, 1, 3, "dim")} />
 
       <Box x={12} y={212} w={262} h={30} label="evidence → Client.send · L4–6" tone="ok" vis={phase(step, 3, 3)} />
       <Txt x={296} y={244} vis={phase(step, 4)} tone="faint">

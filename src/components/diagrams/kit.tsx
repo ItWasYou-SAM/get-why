@@ -84,7 +84,15 @@ export function Diagram({
       ) : null}
       <MarkerContext value={uid}>
         <MotionContext value={reduced}>
-          <svg viewBox={viewBox} role="img" aria-label={label} className="block h-auto w-full select-none">
+          {/* On phones the diagram keeps a legible size and scrolls sideways
+              inside its frame; from `sm` up it scales to fit. */}
+          <div className="overflow-x-auto [scrollbar-width:thin]">
+          <svg
+            viewBox={viewBox}
+            role="img"
+            aria-label={label}
+            className="block h-auto w-full min-w-[500px] select-none sm:min-w-0"
+          >
             <defs>
               {(
                 [
@@ -111,6 +119,7 @@ export function Diagram({
             </defs>
             {children}
           </svg>
+          </div>
         </MotionContext>
       </MarkerContext>
       <figcaption className="border-t border-line px-4 py-3">
@@ -131,7 +140,10 @@ export function Diagram({
               />
             </button>
           ))}
-          <span className="ml-auto font-mono text-[11px] text-ink-faint">
+          <span className="ml-auto font-mono text-[11px] text-ink-faint sm:hidden" aria-hidden="true">
+            swipe ↔ ·{" "}
+          </span>
+          <span className="font-mono text-[11px] text-ink-faint max-sm:ml-1 sm:ml-auto">
             {reduced ? "" : paused ? "paused · " : ""}
             {step + 1}/{steps.length}
           </span>

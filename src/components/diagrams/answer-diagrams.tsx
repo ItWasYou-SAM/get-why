@@ -218,14 +218,14 @@ export function ValidatorDiagram() {
         const dropped = tone === "bad" && step >= 3;
         return (
           <g key={claim}>
-            <Edge d={`M126 171 C142 171 142 ${y + 21} 158 ${y + 21}`} vis={phase(step, 1, 1, "hidden")} />
+            <Edge d={`M126 171 C142 171 142 ${y + 21} 158 ${y + 21}`} vis={phase(step, 1, 1, "dim")} />
             <Box
               x={160}
               y={y}
               w={262}
               h={42}
               label={claim}
-              vis={dropped ? "dim" : phase(step, 1, tone === "bad" ? 3 : 2, "hidden")}
+              vis={dropped ? "dim" : phase(step, 1, tone === "bad" ? 3 : 2, "dim")}
               tone={dropped ? "bad" : "ink"}
             />
             {dropped ? <path d={`M172 ${y + 21} H410`} className="stroke-bad" strokeWidth={1.25} /> : null}
@@ -242,7 +242,7 @@ export function ValidatorDiagram() {
         label="answered · 2 claims kept · 1 dropped"
         sub="confidence computed from the evidence, never taken from the model"
         tone="ok"
-        vis={phase(step, 4, 4)}
+        vis={phase(step, 4, 4, "dim")}
       />
     </Diagram>
   );
@@ -294,7 +294,7 @@ export function McpDiagram() {
         const y = 76 + i * 44;
         const dir = to > from ? -1 : 1;
         const d = `M${from + (to > from ? 6 : -6)} ${y} H${to + dir * 8}`;
-        const vis = phase(step, i, i);
+        const vis = phase(step, i, i, "dim");
         return (
           <g key={text}>
             <Edge d={d} vis={vis} tone={i === 4 ? "warn" : "ink"} label={text} lx={(from + to) / 2} ly={y - 8} />
